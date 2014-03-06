@@ -1,5 +1,6 @@
 package combinatorics4java.state;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class EnumerationState<E> extends CombinatoricState<E> {
@@ -8,6 +9,8 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 
 	public EnumerationState(List<E> elements, int size) {
 		super(size);
+		assert (size > 0);
+		assert (elements != null && elements.size() > 0);
 		this.elements = elements;
 	}
 
@@ -18,7 +21,12 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 
 	@Override
 	protected List<E> getNextCombination() {
-		return super.getCombination(elements);
+		List<E> combinationList = new ArrayList<>();
+		for (int i = 0; i < super.size(); i++) {
+			combinationList.add(elements.get(super.getIndex(i)));
+		}
+		return combinationList;
+
 	}
 
 }

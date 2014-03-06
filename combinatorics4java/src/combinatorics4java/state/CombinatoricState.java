@@ -1,6 +1,5 @@
 package combinatorics4java.state;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -30,12 +29,12 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 		}
 	}
 
-	protected List<E> getCombination(List<E> elements) {
-		List<E> combinationList = new ArrayList<>();
-		for (int i = 0; i < this.state.length; i++) {
-			combinationList.add(elements.get(this.state[i]));
-		}
-		return combinationList;
+	public int getIndex(int position) {
+		return this.state[position];
+	}
+
+	public int size() {
+		return this.state.length;
 	}
 
 	public void remove() {
@@ -50,6 +49,6 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 
 	protected abstract List<E> getNextCombination();
 
-	protected abstract int getSize(int pos);
+	protected abstract int getSize(int position);
 
 }
