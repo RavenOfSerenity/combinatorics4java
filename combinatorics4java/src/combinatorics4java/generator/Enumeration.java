@@ -15,9 +15,6 @@ public final class Enumeration<E> {
 	}
 
 	public Iterator<List<E>> iterator(int size) {
-		if (size <= 0) {
-			throw new IllegalArgumentException("Invalid size specified");
-		}
 		return new EnumerationState<>(elements, size);
 	}
 
