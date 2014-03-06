@@ -45,6 +45,9 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	}
 
 	public List<E> next() {
+		if (!this.hasNext()) {
+			throw new IllegalStateException("Next state is not available");
+		}
 		List<E> nextCombination = this.getNextCombination();
 		this.incrementState();
 		return nextCombination;
