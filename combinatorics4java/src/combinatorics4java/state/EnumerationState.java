@@ -6,8 +6,8 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 
 	private List<E> elements;
 
-	public EnumerationState(List<E> elements) {
-		super(elements.size());
+	public EnumerationState(List<E> elements, int size) {
+		super(size);
 		this.elements = elements;
 	}
 
@@ -17,7 +17,7 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 	}
 
 	@Override
-	protected List<E> nextCombination() {
+	protected List<E> getNextCombination() {
 		return super.getCombination(elements);
 	}
 

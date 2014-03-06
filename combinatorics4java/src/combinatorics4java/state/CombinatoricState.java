@@ -7,12 +7,10 @@ import java.util.List;
 public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 
 	private int[] state;
-	private int index;
 	private boolean atEnd;
 
 	public CombinatoricState(int size) {
 		this.state = new int[size];
-		this.index = size - 1;
 	}
 
 	public boolean hasNext() {
@@ -20,20 +18,22 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	}
 
 	protected void incrementState() {
-		while (this.index >= 0 && this.state[index] > this.getSize(index)) {
+		int index = state.length - 1;
+		while (index >= 0 && this.state[index] >= this.getSize(index) - 1) {
 			this.state[index] = 0;
-			this.index--;
+			index--;
 		}
-		if (this.index <= 0) {
+		if (index >= 0) {
+			this.state[index]++;
+		} else {
 			this.atEnd = true;
 		}
 	}
 
 	protected List<E> getCombination(List<E> elements) {
-		assert (this.state.length == elements.size());
 		List<E> combinationList = new ArrayList<>();
 		for (int i = 0; i < this.state.length; i++) {
-			combinationList.add(elements.get(i));
+			combinationList.add(elements.get(this.state[i]));
 		}
 		return combinationList;
 	}
@@ -43,11 +43,12 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	}
 
 	public List<E> next() {
-		this.next();
-		return this.nextCombination();
+		List<E> nextCombination = this.getNextCombination();
+		this.incrementState();
+		return nextCombination;
 	}
 
-	protected abstract List<E> nextCombination();
+	protected abstract List<E> getNextCombination();
 
 	protected abstract int getSize(int pos);
 
