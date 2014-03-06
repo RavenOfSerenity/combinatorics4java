@@ -5,20 +5,17 @@ import java.util.List;
 
 import combinatorics4java.state.EnumerationState;
 
-public final class Enumeration<E> implements Iterable<List<E>> {
+public final class Enumeration<E> {
 
 	private List<E> elements;
-	private int size;
 
-	public Enumeration(List<E> elements, int size) {
+	public Enumeration(List<E> elements) {
 		assert (elements != null && elements.size() > 0);
-		assert (size > 0);
 		this.elements = elements;
-		this.size = size;
 	}
 
-	@Override
-	public Iterator<List<E>> iterator() {
+	public Iterator<List<E>> iterator(int size) {
+		assert (size > 0);
 		return new EnumerationState<>(elements, size);
 	}
 

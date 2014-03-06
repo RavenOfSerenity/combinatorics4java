@@ -20,8 +20,8 @@ public class EnumerationExample {
 
 	public static void main(String[] args) {
 		List<Character> elements = Arrays.asList('a', 'b', 'c', 'd');
-		Enumeration charEnumeration = new Enumeration(elements, 3);
-		Iterator<List<Character>> it = charEnumeration.iterator();
+		Enumeration<Character> charEnumeration = new Enumeration<>(elements);
+		Iterator<List<Character>> it = charEnumeration.iterator(3);
 		while (it.hasNext()) {
 			printList(it.next());
 		}
