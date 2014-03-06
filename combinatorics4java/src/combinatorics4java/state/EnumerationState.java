@@ -9,8 +9,9 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 
 	public EnumerationState(List<E> elements, int size) {
 		super(size);
-		assert (size > 0);
-		assert (elements != null && elements.size() > 0);
+		if (elements == null || elements.size() == 0) {
+			throw new IllegalArgumentException("Elements list is empty");
+		}
 		this.elements = elements;
 	}
 

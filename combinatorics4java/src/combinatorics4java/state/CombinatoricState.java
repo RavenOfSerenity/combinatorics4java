@@ -9,6 +9,9 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	private boolean atEnd;
 
 	public CombinatoricState(int size) {
+		if (size <= 0) {
+			throw new IllegalArgumentException("Invalid size specified");
+		}
 		this.state = new int[size];
 	}
 
