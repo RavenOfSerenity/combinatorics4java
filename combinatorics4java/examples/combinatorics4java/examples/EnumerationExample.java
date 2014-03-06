@@ -6,24 +6,14 @@ import java.util.List;
 
 import combinatorics4java.generator.Enumeration;
 
-public class EnumerationExample {
-
-	private static <E> void printList(List<E> combination) {
-		System.out.print("{");
-		for (int i = 0; i < combination.size() - 1; i++) {
-			System.out.print(combination.get(i));
-			System.out.print(",");
-		}
-		System.out.print(combination.get(combination.size() - 1));
-		System.out.println("}");
-	}
+public final class EnumerationExample {
 
 	public static void main(String[] args) {
 		List<Character> elements = Arrays.asList('a', 'b', 'c', 'd');
 		Enumeration<Character> charEnumeration = new Enumeration<>(elements);
 		Iterator<List<Character>> it = charEnumeration.iterator(3);
 		while (it.hasNext()) {
-			printList(it.next());
+			ExampleUtils.printList(it.next());
 		}
 	}
 
