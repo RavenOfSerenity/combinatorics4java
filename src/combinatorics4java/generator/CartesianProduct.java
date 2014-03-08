@@ -7,12 +7,12 @@ import combinatorics4java.state.CartesianProductState;
 
 public final class CartesianProduct {
 
-	private CartesianProduct() {
+    private CartesianProduct() {
 
-	}
+    }
 
-	public static <E> Iterator<List<E>> iterator(List<List<E>> elements) {
-		return new CartesianProductState<E>(elements);
-	}
+    public static <E> Iterator<List<E>> iterator(List<List<E>> elements) {
+	return new CartesianProductState<E>(elements);
+    }
 
 }

@@ -7,14 +7,14 @@ import combinatorics4java.state.EnumerationState;
 
 public final class Enumeration<E> {
 
-	private List<E> elements;
+    private List<E> elements;
 
-	public Enumeration(List<E> elements) {
-		this.elements = elements;
-	}
+    public Enumeration(List<E> elements) {
+	this.elements = elements;
+    }
 
-	public Iterator<List<E>> iterator(int size) {
-		return new EnumerationState<>(elements, size);
-	}
+    public Iterator<List<E>> iterator(int size) {
+	return new EnumerationState<>(elements, size);
+    }
 
 }
