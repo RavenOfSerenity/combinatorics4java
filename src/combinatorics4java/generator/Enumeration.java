@@ -10,7 +10,6 @@ public final class Enumeration<E> {
 	private List<E> elements;
 
 	public Enumeration(List<E> elements) {
-		assert (elements != null && elements.size() > 0);
 		this.elements = elements;
 	}
 
