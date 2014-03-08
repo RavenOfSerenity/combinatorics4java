@@ -16,7 +16,7 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 	}
 
 	@Override
-	protected int getRadix(int index) {
+	protected int getRadix(int position) {
 		return this.elements.size();
 	}
 

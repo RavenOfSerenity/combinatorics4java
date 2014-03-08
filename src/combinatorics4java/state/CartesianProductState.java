@@ -37,8 +37,8 @@ public final class CartesianProductState<E> extends CombinatoricState<E> {
 	}
 
 	@Override
-	protected int getRadix(int index) {
-		return this.elements.get(index).size();
+	protected int getRadix(int position) {
+		return this.elements.get(position).size();
 	}
 
 }

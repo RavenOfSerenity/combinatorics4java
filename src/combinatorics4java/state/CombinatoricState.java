@@ -21,15 +21,15 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	}
 
 	private void incrementState() {
-		int index = state.length - 1;
-		while (index >= 0 && this.state[index] >= this.getRadix(index) - 1
-				&& this.isValid(index)) {
-			this.state[index] = 0;
-			index--;
+		int position = state.length - 1;
+		while (position >= 0 && this.state[position] >= this.getRadix(position) - 1
+				&& this.isValid(position)) {
+			this.state[position] = 0;
+			position--;
 		}
-		if (index >= 0) {
-			this.state[index]++;
-			this.fill(index);
+		if (position >= 0) {
+			this.state[position]++;
+			this.fill(position);
 		} else {
 			this.atEnd = true;
 		}
@@ -54,12 +54,12 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	 * Optional method used to fill the state after the normal increment of the
 	 * radix starting at the given index
 	 */
-	protected void fill(int fromIndex) {
+	protected void fill(int fromPosition) {
 
 	}
 
-	protected int getIndex(int index) {
-		return this.state[index];
+	protected int getIndex(int position) {
+		return this.state[position];
 	}
 
 	protected void setIndex(int position, int value) {
@@ -85,6 +85,6 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 
 	protected abstract List<E> getNextCombination();
 
-	protected abstract int getRadix(int index);
+	protected abstract int getRadix(int position);
 
 }
