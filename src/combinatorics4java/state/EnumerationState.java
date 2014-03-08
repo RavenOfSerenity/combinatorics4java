@@ -16,15 +16,15 @@ public final class EnumerationState<E> extends CombinatoricState<E> {
 	}
 
 	@Override
-	protected int getSize(int pos) {
+	protected int getRadix(int index) {
 		return this.elements.size();
 	}
 
 	@Override
 	protected List<E> getNextCombination() {
 		List<E> combinationList = new ArrayList<>();
-		for (int i = 0; i < super.size(); i++) {
-			combinationList.add(elements.get(super.getIndex(i)));
+		for (int i = 0; i < this.size(); i++) {
+			combinationList.add(elements.get(this.getIndex(i)));
 		}
 		return combinationList;
 

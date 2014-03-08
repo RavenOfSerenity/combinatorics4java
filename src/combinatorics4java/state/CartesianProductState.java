@@ -30,15 +30,15 @@ public final class CartesianProductState<E> extends CombinatoricState<E> {
 	@Override
 	protected List<E> getNextCombination() {
 		List<E> combinationList = new ArrayList<>();
-		for (int i = 0; i < super.size(); i++) {
-			combinationList.add(elements.get(i).get(super.getIndex(i)));
+		for (int i = 0; i < this.size(); i++) {
+			combinationList.add(elements.get(i).get(this.getIndex(i)));
 		}
 		return combinationList;
 	}
 
 	@Override
-	protected int getSize(int position) {
-		return this.elements.get(position).size();
+	protected int getRadix(int index) {
+		return this.elements.get(index).size();
 	}
 
 }
