@@ -3,9 +3,9 @@ package combinatorics4java.state;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class EnumerationState<E> extends CombinatoricState<E> {
+public class EnumerationState<E> extends CombinatoricState<E> {
 
-    private List<E> elements;
+    protected List<E> elements;
 
     public EnumerationState(List<E> elements, int size) {
 	super(size);

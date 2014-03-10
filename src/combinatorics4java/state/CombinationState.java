@@ -1,22 +1,17 @@
 package combinatorics4java.state;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public final class CombinationState<E> extends CombinatoricState<E> {
+public final class CombinationState<E> extends EnumerationState<E> {
 
-    private List<E> elements;
     private int maxIndex;
     private int maxPosition;
 
     public CombinationState(List<E> elements, int size) {
-	super(size);
-	if (elements == null || elements.size() == 0) {
-	    throw new IllegalArgumentException("Elements list is empty");
-	} else if (size > elements.size()) {
+	super(elements, size);
+	if (size > elements.size()) {
 	    throw new IllegalArgumentException("Size can't exceed the number of elements");
 	}
-	this.elements = elements;
 	this.maxIndex = elements.size() - 1;
 	this.maxPosition = this.size() - 1;
     }
@@ -51,21 +46,6 @@ public final class CombinationState<E> extends CombinatoricState<E> {
 	for (int i = fromPosition + 1; i < this.size(); i++) {
 	    this.setIndex(i, ++index);
 	}
-    }
-
-    @Override
-    protected List<E> getNextCombination() {
-	List<E> combinationList = new ArrayList<>();
-	for (int i = 0; i < this.size(); i++) {
-	    combinationList.add(elements.get(this.getIndex(i)));
-	}
-	return combinationList;
-
-    }
-
-    @Override
-    protected int getRadix(int index) {
-	return this.elements.size();
     }
 
 }
