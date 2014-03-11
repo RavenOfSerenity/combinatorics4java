@@ -8,9 +8,9 @@ import combinatorics4java.generator.CartesianProduct;
 
 public final class CartesianProductTestGenerator {
 
-    private final List<List<Character>> elements = TestUtils.getList("a,b,c", "x,y");
-    private final List<List<Character>> twoListResults = TestUtils.getList("a,x", "a,y", "b,x", "b,y",
-	    "c,x", "c,y");
+    private final List<List<Character>> elements = TestUtils.getList("abc", "xy");
+    private final List<List<Character>> twoListResults = TestUtils.getList("ax", "ay", "bx", "by",
+	    "cx", "cy");
 
     @Test
     public void testGenerators() {

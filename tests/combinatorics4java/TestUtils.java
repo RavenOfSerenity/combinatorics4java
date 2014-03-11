@@ -18,8 +18,8 @@ public final class TestUtils {
 	List<List<Character>> list = new ArrayList<>();
 	for (String row : result) {
 	    List<Character> rowList = new ArrayList<>();
-	    for (String part : row.split(",")) {
-		rowList.add(part.charAt(0));
+	    for (int i = 0; i < row.length(); i++) {
+		rowList.add(row.charAt(i));
 	    }
 	    list.add(rowList);
 	}

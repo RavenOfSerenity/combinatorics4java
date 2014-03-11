@@ -12,8 +12,8 @@ public final class EnumerationGeneratorTest {
     private final String name = "Enumeration";
     private final List<Character> elements = Arrays.asList('a', 'b', 'c');
     private List<List<Character>> sizeOneResults = TestUtils.getList("a", "b", "c");
-    private List<List<Character>> sizeTwoResults = TestUtils.getList("a,a", "a,b", "a,c", "b,a",
-	    "b,b", "b,c", "c,a", "c,b", "c,c");
+    private List<List<Character>> sizeTwoResults = TestUtils.getList("aa", "ab", "ac", "ba", "bb",
+	    "bc", "ca", "cb", "cc");
 
     @Test
     public void testGenerators() {

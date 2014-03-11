@@ -12,8 +12,8 @@ public final class CombinationGeneratorTest {
     private final String name = "Combination";
     private final List<Character> elements = Arrays.asList('a', 'b', 'c');
     private final List<List<Character>> sizeOneResults = TestUtils.getList("a", "b", "c");
-    private final List<List<Character>> sizeTwoResults = TestUtils.getList("a,b", "a,c", "b,c");
-    private final List<List<Character>> sizeThreeResults = TestUtils.getList("a,b,c");
+    private final List<List<Character>> sizeTwoResults = TestUtils.getList("ab", "ac", "bc");
+    private final List<List<Character>> sizeThreeResults = TestUtils.getList("abc");
 
     @Test
     public void testGenerators() {
