@@ -1,9 +1,9 @@
 package combinatorics4java.generator;
 
-import java.util.Iterator;
 import java.util.List;
 
 import combinatorics4java.state.CartesianProductState;
+import combinatorics4java.state.Generator;
 
 public final class CartesianProduct {
 
@@ -11,7 +11,7 @@ public final class CartesianProduct {
 
     }
 
-    public static <E> Iterator<List<E>> iterator(List<List<E>> elements) {
+    public static <E> Generator<E> iterator(List<List<E>> elements) {
 	return new CartesianProductState<E>(elements);
     }
 

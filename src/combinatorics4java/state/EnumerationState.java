@@ -23,7 +23,7 @@ public class EnumerationState<E> extends CombinatoricState<E> {
     @Override
     protected List<E> getNextCombination() {
 	List<E> combinationList = new ArrayList<>();
-	for (int i = 0; i < this.size(); i++) {
+	for (int i = 0; i < this.getStateSize(); i++) {
 	    combinationList.add(elements.get(this.getIndex(i)));
 	}
 	return combinationList;

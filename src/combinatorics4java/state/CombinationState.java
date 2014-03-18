@@ -13,12 +13,12 @@ public final class CombinationState<E> extends EnumerationState<E> {
 	    throw new IllegalArgumentException("Size can't exceed the number of elements");
 	}
 	this.maxIndex = elements.size() - 1;
-	this.maxPosition = this.size() - 1;
+	this.maxPosition = this.getStateSize() - 1;
     }
 
     @Override
     protected void init() {
-	for (int i = 0; i < this.size(); i++) {
+	for (int i = 0; i < this.getStateSize(); i++) {
 	    this.setIndex(i, i);
 	}
     }
@@ -43,7 +43,7 @@ public final class CombinationState<E> extends EnumerationState<E> {
     @Override
     protected void fill(int fromPosition) {
 	int index = this.getIndex(fromPosition);
-	for (int i = fromPosition + 1; i < this.size(); i++) {
+	for (int i = fromPosition + 1; i < this.getStateSize(); i++) {
 	    this.setIndex(i, ++index);
 	}
     }

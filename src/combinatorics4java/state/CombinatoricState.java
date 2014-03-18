@@ -1,9 +1,8 @@
 package combinatorics4java.state;
 
-import java.util.Iterator;
 import java.util.List;
 
-public abstract class CombinatoricState<E> implements Iterator<List<E>> {
+public abstract class CombinatoricState<E> extends Generator<E> {
 
     private int[] state;
     private boolean atEnd;
@@ -66,12 +65,8 @@ public abstract class CombinatoricState<E> implements Iterator<List<E>> {
 	this.state[position] = value;
     }
 
-    protected int size() {
+    protected int getStateSize() {
 	return this.state.length;
-    }
-
-    public void remove() {
-
     }
 
     public List<E> next() {

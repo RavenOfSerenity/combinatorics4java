@@ -1,9 +1,9 @@
 package combinatorics4java.generator;
 
-import java.util.Iterator;
 import java.util.List;
 
 import combinatorics4java.state.EnumerationState;
+import combinatorics4java.state.Generator;
 
 public final class Enumeration<E> {
 
@@ -13,7 +13,7 @@ public final class Enumeration<E> {
 	this.elements = elements;
     }
 
-    public Iterator<List<E>> iterator(int size) {
+    public Generator<E> iterator(int size) {
 	return new EnumerationState<>(elements, size);
     }
 
