@@ -18,11 +18,8 @@ public final class CombinationGeneratorTest {
     @Test
     public void testGenerators() {
 	Combination<Character> enumeration = new Combination<>(elements);
-	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(1),
-		sizeOneResults.iterator());
-	TestUtils.areEqual(TestUtils.getMessage(name, 2), enumeration.iterator(2),
-		sizeTwoResults.iterator());
-	TestUtils.areEqual(TestUtils.getMessage(name, 3), enumeration.iterator(3),
-		sizeThreeResults.iterator());
+	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(1), sizeOneResults);
+	TestUtils.areEqual(TestUtils.getMessage(name, 2), enumeration.iterator(2), sizeTwoResults);
+	TestUtils.areEqual(TestUtils.getMessage(name, 3), enumeration.iterator(3), sizeThreeResults);
     }
 }

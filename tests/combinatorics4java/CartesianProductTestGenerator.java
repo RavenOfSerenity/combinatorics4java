@@ -15,7 +15,7 @@ public final class CartesianProductTestGenerator {
     @Test
     public void testGenerators() {
 	TestUtils.areEqual("Cartesian product test", CartesianProduct.iterator(elements),
-		twoListResults.iterator());
+		twoListResults);
     }
 
 }

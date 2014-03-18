@@ -18,10 +18,8 @@ public final class EnumerationGeneratorTest {
     @Test
     public void testGenerators() {
 	Enumeration<Character> enumeration = new Enumeration<>(elements);
-	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(1),
-		sizeOneResults.iterator());
-	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(2),
-		sizeTwoResults.iterator());
+	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(1), sizeOneResults);
+	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(2), sizeTwoResults);
     }
 
     public String getMessage(int size) {
