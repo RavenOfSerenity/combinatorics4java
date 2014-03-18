@@ -6,6 +6,7 @@ import java.util.List;
 public class EnumerationState<E> extends CombinatoricState<E> {
 
     protected List<E> elements;
+    private int size;
 
     public EnumerationState(List<E> elements, int size) {
 	super(size);
@@ -13,6 +14,12 @@ public class EnumerationState<E> extends CombinatoricState<E> {
 	    throw new IllegalArgumentException("Elements list is empty");
 	}
 	this.elements = elements;
+	this.size = this.calculateSize(size);
+    }
+
+    protected int calculateSize(int enumerationSize) {
+	int len = this.getRadix(0);
+	return (int) Math.pow(len, enumerationSize);
     }
 
     @Override
@@ -28,6 +35,11 @@ public class EnumerationState<E> extends CombinatoricState<E> {
 	}
 	return combinationList;
 
+    }
+
+    @Override
+    public int size() {
+	return this.size;
     }
 
 }

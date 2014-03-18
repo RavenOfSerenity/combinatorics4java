@@ -16,6 +16,22 @@ public final class CombinationState<E> extends EnumerationState<E> {
 	this.maxPosition = this.getStateSize() - 1;
     }
 
+    private int halfFactorial(int start, int end) {
+	int fact = 1;
+	for (int i = start + 1; i <= end; i++) {
+	    fact = fact * i;
+	}
+	return fact;
+    }
+
+    @Override
+    protected int calculateSize(int requestedSize) {
+	int len = this.elements.size();
+	int max = Math.max(requestedSize, len - requestedSize);
+	int min = Math.min(requestedSize, len - requestedSize);
+	return this.halfFactorial(max, len) / this.halfFactorial(1, min);
+    }
+
     @Override
     protected void init() {
 	for (int i = 0; i < this.getStateSize(); i++) {

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import combinatorics4java.state.Generator;
+
 public final class TestUtils {
 
     private TestUtils() {
@@ -26,14 +28,12 @@ public final class TestUtils {
 	return list;
     }
 
-    public static <E> void areEqual(String message, Iterator<List<E>> generatorIterator,
-	    Iterator<List<E>> resultsIterator) {
-
+    public static <E> void areEqual(String message, Generator<E> generator, List<List<E>> resultsList) {
+	Iterator<List<E>> resultsIterator = resultsList.iterator();
+	assertTrue(message, resultsList.size() == generator.size());
 	while (resultsIterator.hasNext()) {
-	    assertTrue(generatorIterator.hasNext());
-	    assertThat(message, resultsIterator.next(), is(generatorIterator.next()));
+	    assertThat(message, resultsIterator.next(), is(generator.next()));
 	}
-	assertTrue(!generatorIterator.hasNext());
 
     }
 

@@ -6,6 +6,7 @@ import java.util.List;
 public final class CartesianProductState<E> extends CombinatoricState<E> {
 
     private List<List<E>> elements;
+    private int size;
 
     public CartesianProductState(List<List<E>> elements) {
 	super(elements.size());
@@ -13,6 +14,7 @@ public final class CartesianProductState<E> extends CombinatoricState<E> {
 	    throw new IllegalArgumentException("Elements list is invalid");
 	}
 	this.elements = elements;
+	this.size = calculateSize(elements.size());
     }
 
     private boolean isValid(List<List<E>> elements) {
@@ -27,6 +29,14 @@ public final class CartesianProductState<E> extends CombinatoricState<E> {
 	return true;
     }
 
+    protected int calculateSize(int requestedSize) {
+	int size = 1;
+	for (int i = 0; i < requestedSize; i++) {
+	    size *= this.getRadix(i);
+	}
+	return size;
+    }
+
     @Override
     protected List<E> getNextCombination() {
 	List<E> combinationList = new ArrayList<>();
@@ -39,6 +49,11 @@ public final class CartesianProductState<E> extends CombinatoricState<E> {
     @Override
     protected int getRadix(int position) {
 	return this.elements.get(position).size();
+    }
+
+    @Override
+    public int size() {
+	return this.size;
     }
 
 }

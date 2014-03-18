@@ -69,6 +69,7 @@ public abstract class CombinatoricState<E> extends Generator<E> {
 	return this.state.length;
     }
 
+    @Override
     public List<E> next() {
 	if (!this.hasNext()) {
 	    throw new IllegalStateException("Next state is not available");
