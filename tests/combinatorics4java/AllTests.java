@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ EnumerationGeneratorTest.class, CombinationGeneratorTest.class,
-	CartesianProductTestGenerator.class })
+	CartesianProductGeneratorTest.class })
 public class AllTests {
 
 }

@@ -1,29 +1,48 @@
 package combinatorics4java;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import combinatorics4java.generator.Enumeration;
+import combinatorics4java.state.Generator;
 
+@RunWith(Parameterized.class)
 public final class EnumerationGeneratorTest {
 
-    private final String name = "Enumeration";
-    private final List<Character> elements = Arrays.asList('a', 'b', 'c');
-    private List<List<Character>> sizeOneResults = TestUtils.getList("a", "b", "c");
-    private List<List<Character>> sizeTwoResults = TestUtils.getList("aa", "ab", "ac", "ba", "bb",
-	    "bc", "ca", "cb", "cc");
+    private static final String name = "Enumeration";
+    private static final List<Character> elements = Arrays.asList('a', 'b', 'c');
+    private static final Enumeration<Character> enumeration = new Enumeration<>(elements);
+    private static final List<List<Character>> sizeOneResults = TestUtils.getList("a", "b", "c");
+    private static final List<List<Character>> sizeTwoResults = TestUtils.getList("aa", "ab", "ac",
+	    "ba", "bb", "bc", "ca", "cb", "cc");
+
+    private String message;
+    private int size;
+    private List<List<Character>> resultsList;
+
+    public EnumerationGeneratorTest(String message, int size, List<List<Character>> resultsList) {
+	this.message = message;
+	this.size = size;
+	this.resultsList = resultsList;
+    }
 
     @Test
     public void testGenerators() {
-	Enumeration<Character> enumeration = new Enumeration<>(elements);
-	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(1), sizeOneResults);
-	TestUtils.areEqual(TestUtils.getMessage(name, 1), enumeration.iterator(2), sizeTwoResults);
+	Generator<Character> generator = enumeration.iterator(this.size);
+	TestUtils.areEqual(this.message, generator, this.resultsList);
     }
 
-    public String getMessage(int size) {
-	return String.format("Combination size %d iterator", size);
+    @Parameters(name = "{0}")
+    public static Iterable<Object[]> data() {
+	List<Object[]> data = new ArrayList<>();
+	data.add(new Object[] { TestUtils.getMessage(name, 1), 1, sizeOneResults });
+	data.add(new Object[] { TestUtils.getMessage(name, 2), 2, sizeTwoResults });
+	return data;
     }
-
 }

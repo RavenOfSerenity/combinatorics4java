@@ -28,7 +28,8 @@ public final class TestUtils {
 	return list;
     }
 
-    public static <E> void areEqual(String message, Generator<E> generator, List<List<E>> resultsList) {
+    public static <E> void areEqual(String message, Generator<E> generator,
+	    List<List<E>> resultsList) {
 	Iterator<List<E>> resultsIterator = resultsList.iterator();
 	assertTrue(message, resultsList.size() == generator.size());
 	while (resultsIterator.hasNext()) {
@@ -38,6 +39,6 @@ public final class TestUtils {
     }
 
     public static String getMessage(String name, int size) {
-	return String.format("%s with iterator of size %d", name, size);
+	return String.format("%s of size %d", name, size);
     }
 }
