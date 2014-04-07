@@ -18,9 +18,8 @@ public final class EnumerationGeneratorTest {
     private static final String name = "Enumeration";
     private static final List<Character> elements = Arrays.asList('a', 'b', 'c');
     private static final Enumeration<Character> enumeration = new Enumeration<>(elements);
-    private static final List<List<Character>> sizeOneResults = TestUtils.getList("a", "b", "c");
-    private static final List<List<Character>> sizeTwoResults = TestUtils.getList("aa", "ab", "ac",
-	    "ba", "bb", "bc", "ca", "cb", "cc");
+    private static final List<List<Character>> sizeOneResults = TestUtils.getListOfList("a b c");
+    private static final List<List<Character>> sizeTwoResults = TestUtils.getListOfList("aa ab ac ba bb bc ca cb cc");
 
     private String message;
     private int size;

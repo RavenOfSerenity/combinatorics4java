@@ -14,9 +14,8 @@ import combinatorics4java.state.Generator;
 @RunWith(Parameterized.class)
 public final class CartesianProductGeneratorTest {
 
-    private static final List<List<Character>> elements = TestUtils.getList("abc", "xy");
-    private static final List<List<Character>> twoListResults = TestUtils.getList("ax", "ay", "bx",
-	    "by", "cx", "cy");
+    private static final List<List<Character>> elements = TestUtils.getListOfList("abc xy");
+    private static final List<List<Character>> twoListResults = TestUtils.getListOfList("ax ay bx by cx cy");
 
     private String message;
     private List<List<Character>> resultsList;

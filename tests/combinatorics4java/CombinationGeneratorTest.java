@@ -1,7 +1,6 @@
 package combinatorics4java;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -16,11 +15,11 @@ import combinatorics4java.state.Generator;
 public final class CombinationGeneratorTest {
 
     private static final String name = "Combination";
-    private static final List<Character> elements = Arrays.asList('a', 'b', 'c');
+    private static final List<Character> elements = TestUtils.getList("abc");
     private static final Combination<Character> combination = new Combination<>(elements);
-    private static final List<List<Character>> sizeOneResults = TestUtils.getList("a", "b", "c");
-    private static final List<List<Character>> sizeTwoResults = TestUtils.getList("ab", "ac", "bc");
-    private static final List<List<Character>> sizeThreeResults = TestUtils.getList("abc");
+    private static final List<List<Character>> sizeOneResults = TestUtils.getListOfList("a b c");
+    private static final List<List<Character>> sizeTwoResults = TestUtils.getListOfList("ab ac bc");
+    private static final List<List<Character>> sizeThreeResults = TestUtils.getListOfList("abc");
 
     private String message;
     private int size;

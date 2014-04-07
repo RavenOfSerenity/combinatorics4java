@@ -16,16 +16,26 @@ public final class TestUtils {
 
     }
 
-    public static List<List<Character>> getList(String... result) {
+    public static List<List<Character>> getListOfList(String serializedList) {
+	String[] serializedRows = serializedList.split(" ");
+	return TestUtils.getListOfList(serializedRows);
+    }
+
+    public static List<List<Character>> getListOfList(String... seralizedRows) {
 	List<List<Character>> list = new ArrayList<>();
-	for (String row : result) {
-	    List<Character> rowList = new ArrayList<>();
-	    for (int i = 0; i < row.length(); i++) {
-		rowList.add(row.charAt(i));
-	    }
+	for (String row : seralizedRows) {
+	    List<Character> rowList = TestUtils.getList(row);
 	    list.add(rowList);
 	}
 	return list;
+    }
+
+    public static List<Character> getList(String row) {
+	List<Character> rowList = new ArrayList<>();
+	for (int i = 0; i < row.length(); i++) {
+	    rowList.add(row.charAt(i));
+	}
+	return rowList;
     }
 
     public static <E> void areEqual(String message, Generator<E> generator,
