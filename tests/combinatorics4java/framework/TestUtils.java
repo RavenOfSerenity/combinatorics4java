@@ -1,9 +1,10 @@
-package combinatorics4java;
+package combinatorics4java.framework;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 import combinatorics4java.state.Generator;
 
 public final class TestUtils {
+
+    private final static String TEST_DATA_PREFIX = "../data/";
 
     private TestUtils() {
 
@@ -38,17 +41,20 @@ public final class TestUtils {
 	return rowList;
     }
 
-    public static <E> void areEqual(String message, Generator<E> generator,
-	    List<List<E>> resultsList) {
+    public static <E> void areEqual(Generator<E> generator, List<List<E>> resultsList) {
 	Iterator<List<E>> resultsIterator = resultsList.iterator();
-	assertTrue(message, resultsList.size() == generator.size());
+	assertTrue(resultsList.size() == generator.size());
 	while (resultsIterator.hasNext()) {
-	    assertThat(message, resultsIterator.next(), is(generator.next()));
+	    assertThat(resultsIterator.next(), is(generator.next()));
 	}
 
     }
 
     public static String getMessage(String name, int size) {
 	return String.format("%s of size %d", name, size);
+    }
+
+    public static InputStream getTestDataStream(String filename) {
+	return TestUtils.class.getResourceAsStream(TEST_DATA_PREFIX + filename);
     }
 }

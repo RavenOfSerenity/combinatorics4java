@@ -1,0 +1,12 @@
+Name Two vectors, size one
+Elements a b
+Result ab
+Name Two vectors of size 3 and 2
+Elements abc xy
+Result ax ay bx by cx cy
+Name Three vectors of size 3 2 and 1
+Elements abc xy 1
+Result ax1 ay1 bx1 by1 cx1 cy1
+Name Three vectors of size 3 2 and 2
+Elements abc xy 12
+Result ax1 ax2 ay1 ay2 bx1 bx2 by1 by2 cx1 cx2 cy1 cy2

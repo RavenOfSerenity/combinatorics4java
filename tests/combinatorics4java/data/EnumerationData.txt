@@ -1,0 +1,8 @@
+Elements a
+Name Identity
+Result a
+Name Size one
+Elements abc
+Result a b c
+Name Size two
+Result aa ab ac ba bb bc ca cb cc
